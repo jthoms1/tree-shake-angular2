@@ -22,7 +22,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.js'],
-    mainFields: ["jsnext:main", 'main', 'browser']
+    mainFields: ['main', 'browser']
   },
 
   module: {
@@ -30,7 +30,7 @@ module.exports = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        loader: 'babel-loader!ts-loader'
+        loader: 'ts-loader'
       },
       {
         test: /\.js$/,

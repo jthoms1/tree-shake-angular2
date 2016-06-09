@@ -22,7 +22,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.js'],
-    mainFields: ['jsnext:main', 'main', 'browser']
+    mainFields: ['main', 'browser']
   },
 
   module: {
@@ -31,6 +31,13 @@ module.exports = {
         test: /\.ts$/,
         exclude: /node_modules/,
         loader: 'ts-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }
     ]
   },
