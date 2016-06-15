@@ -22,7 +22,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.js'],
-    mainFields: ['main', 'browser']
+    mainFields: ['jsnext', 'main', 'browser']
   },
 
   module: {

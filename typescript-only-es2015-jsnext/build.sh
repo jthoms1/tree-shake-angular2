@@ -1,1 +1,1 @@
-../node_modules/.bin/webpack && open ./dist/index.html
+../node_modules/.bin/webpack --optimize-minimize && open ./dist/index.html
