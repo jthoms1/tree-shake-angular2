@@ -29,15 +29,7 @@ module.exports = {
     loaders: [
       {
         test: /\.ts$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader!ts-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015-native-modules']
-        }
+        loader: 'ts-loader'
       }
     ]
   },
