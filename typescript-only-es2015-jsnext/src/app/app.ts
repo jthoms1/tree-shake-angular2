@@ -12,3 +12,7 @@ export class App {
     console.log('what?');
   }
 }
+
+export function hello() {
+  console.log('huh');
+}

@@ -1,1 +1,1 @@
-# tree-shake-angular2
+# tree-shake-ionic2
