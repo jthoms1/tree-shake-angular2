@@ -21,16 +21,12 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.js'],
     mainFields: ['jsnext:main', 'main', 'browser']
   },
 
   module: {
     loaders: [
-      {
-        test: /\.ts$/,
-        loader: 'ts-loader'
-      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
