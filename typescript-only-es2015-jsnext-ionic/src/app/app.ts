@@ -1,18 +1,26 @@
 import {Component} from '@angular/core';
+import {StatusBar} from 'ionic-native';
+import {Nav, Platform, ionicBootstrap} from 'ionic-angular';
+import {TabsPage} from './pages/tabs/tabs';
 
 @Component({
-  selector: 'app',
-  template: `
-    <h1>Hi</h1>
-    <div>Hellow World</div>
-  `
+  selector: 'ion-app',
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  directives: [Nav, TabsPage]
 })
 export class App {
-  constructor() {
-    console.log('what?');
+
+  rootPage:any;
+
+  constructor(private platform:Platform) {
+    this.rootPage = TabsPage;
+
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      StatusBar.styleDefault();
+    });
   }
 }
 
-export function hello() {
-  console.log('huh');
-}
+ionicBootstrap(App)

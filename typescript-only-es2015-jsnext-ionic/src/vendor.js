@@ -1,5 +1,4 @@
-"use strict";
-require('@angular/platform-browser-dynamic');
-require('@angular/common');
-require('@angular/core');
-require('rxjs/add/operator/map');
+import '@angular/platform-browser-dynamic';
+import '@angular/common';
+import '@angular/core';
+import 'rxjs/add/operator/map';

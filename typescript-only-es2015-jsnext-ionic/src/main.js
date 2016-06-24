@@ -1,4 +1,8 @@
-"use strict";
-var platform_browser_dynamic_1 = require('@angular/platform-browser-dynamic');
-var app_1 = require('./app/app');
-platform_browser_dynamic_1.bootstrap(app_1.App, []);
+import { ReflectiveInjector, coreBootstrap } from '@angular/core';
+import { BROWSER_APP_PROVIDERS, browserPlatform } from '@angular/platform-browser';
+import { ionicPostBootstrap, ionicProviders } from 'ionic-angular';
+import { AppNgFactory } from './app/app.ngfactory';
+var providers = ionicProviders();
+var appInjector = ReflectiveInjector.resolveAndCreate([BROWSER_APP_PROVIDERS, providers], browserPlatform().injector);
+var ngComponentRef = coreBootstrap(AppNgFactory, appInjector);
+ionicPostBootstrap(ngComponentRef);

@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Example Build</title>
+  <link ios-href="css/app.ios.css" rel="stylesheet">
+  <link md-href="css/app.md.css" rel="stylesheet">
+  <link wp-href="css/app.wp.css" rel="stylesheet">
+
 </head>
 <body>
-  <app>Loading</app>
+  <ion-app>Loading</ion-app>
 
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js"></script>
   <script src="js/polyfills.bundle.js"></script>
   <script src="js/vendor.bundle.js"></script>
   <script src="js/main.bundle.js"></script>
