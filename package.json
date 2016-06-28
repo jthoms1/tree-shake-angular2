@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ngc": "ngc -p ngcTsconfig.json",
+    "tsc": "tsc -p tsconfig.json",
     "rollup": "rollup -f iife -c -o dist/js/bundle.es2015.js",
     "es5": "babel dist/js/bundle.es2015.js > dist/js/bundle.es5.js",
     "minify": "uglifyjs dist/js/bundle.es5.js --screw-ie8 --compress --mangle --output dist/js/bundle.min.js"
