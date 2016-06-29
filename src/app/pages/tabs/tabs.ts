@@ -5,6 +5,7 @@ import {ContactPage} from '../contact/contact';
 import {Tabs} from 'ionic-angular';
 
 @Component({
+  selector: 'io-tabs',
   template: `
   <ion-tabs>
     <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
