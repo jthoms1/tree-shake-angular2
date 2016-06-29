@@ -1,4 +1,5 @@
 find ./src -name "*.ngfactory*" | awk '{print "rm " $1}' | sh && \
+  find ./src -name "*metadata.json" | awk '{print "rm " $1}' | sh && \
   ./node_modules/.bin/ngc -p ngcTsconfig.json && \
   ./node_modules/.bin/tsc -p tsconfig.json && \
   ./node_modules/.bin/rollup -f iife -c -o dist/js/bundle.es2015.js && \
