@@ -1,5 +1,6 @@
 //rollup hack
 import * as path from 'path';
+import typescript from 'rollup-plugin-typescript';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import gzipSize from 'gzip-size';
@@ -8,29 +9,29 @@ import { minify } from 'uglify-js';
 import babel from 'rollup-plugin-babel';
 
 class RollupNG2 {
-  constructor(options){
+  constructor(options) {
     this.options = options;
   }
-  resolveId(id, from){
-    if(id.startsWith('rxjs/')){
+  resolveId(id, from) {
+    if (id.startsWith('rxjs/')) {
       return `${__dirname}/node_modules/rxjs-es/${id.split('rxjs/').pop()}.js`;
     }
 
-    if(id.startsWith('@angular/core')){
-      if(id === '@angular/core'){
+    if (id.startsWith('@angular/core')) {
+      if (id === '@angular/core') {
         return `${__dirname}/node_modules/@angular/core/esm/index.js`;
       }
       return `${__dirname}/node_modules/@angular/core/esm/${id.split('@angular/core').pop()}.js`;
     }
-    if(id.startsWith('@angular/common')){
-      if(id === '@angular/common'){
+    if (id.startsWith('@angular/common')) {
+      if (id === '@angular/common') {
         return `${__dirname}/node_modules/@angular/common/esm/index.js`;
       }
       return `${__dirname}/node_modules/@angular/common/esm/${id.split('@angular/common').pop()}.js`;
     }
     /*
     if (id.startsWith('ionic-angular')) {
-      if(id === 'ionic-angular'){
+      if (id === 'ionic-angular') {
         return `${__dirname}/node_modules/ionic-angular/esm/index.js`;
       }
       return `${__dirname}/node_modules/ionic-angular/esm/${id.split('ionic-angular').pop()}.js`;
@@ -38,7 +39,7 @@ class RollupNG2 {
       */
   }
   transform(code, id) {
-    if (code.indexOf('require(') !== -1){
+    if (code.indexOf('require(') !== -1) {
       console.log(`OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -> ${id} `);
     }
     return {
@@ -52,7 +53,7 @@ class RollupNG2 {
 
 var origsize = 0;
 class Logging {
-  transform(code, id){
+  transform(code, id) {
     var filesize = Buffer.byteLength(code) / 1000;
     var minText = '   ';
 
@@ -79,9 +80,12 @@ const rollupNG2 = (config) => new RollupNG2(config);
 const logging = (config) => new Logging(config);
 
 export default {
-  entry: 'src/main.js',
+  entry: 'src/main.ts',
   sourceMap: true,
   plugins: [
+    typescript({
+      typescript: require('typescript')
+    }),
     rollupNG2(),
     nodeResolve({
       jsnext: true, main: true
