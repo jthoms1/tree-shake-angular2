@@ -1,28 +1,25 @@
+import '@angular/common';
 import {Component} from '@angular/core';
 //import {StatusBar} from 'ionic-native';
-//import {Nav, Content, Platform} from 'ionic-angular';
-//import {TabsPage} from './pages/tabs/tabs';
+import {Nav, Content, Platform} from 'ionic-angular';
+import {TabsPage} from './pages/tabs/tabs';
 //import {HomePage} from './pages/home/home';
 
 @Component({
   selector: 'ion-app',
 
-  template: 'Hi'
+  //template: 'Hi',
   //template: '<ion-nav [root]="rootPage"></ion-nav>',
   //directives: [Nav]
-  /*
   template: `
     <ion-content>
     What up
     </ion-content>
   `,
+  directives: [Content],
   providers: [Platform],
-  directives: [Content]
- */
 })
 export class App {
-}
-/*
 
   rootPage:any;
 
@@ -36,4 +33,3 @@ export class App {
     });
   }
 }
-*/
