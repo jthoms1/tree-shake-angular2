@@ -8,7 +8,6 @@ var nodeEnv = 'development';
 module.exports = {
   entry: {
     polyfills: './src/polyfills',
-    vendor: './src/vendor',
     main: './src/main',
   },
   output: {
@@ -43,6 +42,6 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }}),
-    new CommonsChunkPlugin({ name: ['polyfills', 'vendor', 'main'].reverse(), minChunks: Infinity })
+    new CommonsChunkPlugin({ name: ['polyfills', 'main'].reverse(), minChunks: Infinity })
   ]
 }
