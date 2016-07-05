@@ -7,16 +7,23 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'ion-app',
 
-  //template: 'Hi'
+  template: 'Hi'
   //template: '<ion-nav [root]="rootPage"></ion-nav>',
   //directives: [Nav]
+  /*
   template: `
+    <ion-content>
     What up
-  `
-//  directives: [Content]
+    </ion-content>
+  `,
+  providers: [Platform],
+  directives: [Content]
+ */
 })
 export class App {
+}
 /*
+
   rootPage:any;
 
   constructor(private platform:Platform) {
@@ -25,8 +32,8 @@ export class App {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      //StatusBar.styleDefault();
+//      StatusBar.styleDefault();
     });
   }
- */
 }
+*/
